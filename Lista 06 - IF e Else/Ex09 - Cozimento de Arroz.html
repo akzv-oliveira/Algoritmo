@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 09 - Cozimento de Arroz</title>
+</head>
+<body>
+    <h3>Cozimento de Arroz</h3>
+    Qual o tempo de cozimento do arroz?
+    <input id="cozimento" placeholder="Tempo em minutos" type="text"> <br><br>
+
+    <button onclick="provar()">Provar Arroz</button> <br><br>
+    <div id="msg"></div> <br>
+    <img id="img" src="" alt="" style="width:400px">
+</body>
+</html>
+<script>
+
+    function provar() {
+        var tempo = Number(cozimento.value);
+        if (tempo == 5) {
+            msg.innerHTML = `Parabéns! Arroz Perfeito!`
+            img.src = "Imagens/arroz bom.jpg"
+        } else {
+            msg.innerHTML = `Arroz Cru ou cozido demais!`
+            img.src = "Imagens/arroz queimado.jpg"
+        }
+    }
+
+
+</script>

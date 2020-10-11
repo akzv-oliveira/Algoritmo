@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10 - Atacante de Futebol</title>
+</head>
+<body>
+    <h3>Desempenho de um Atacante de Futebol (Desafio)</h3>
+    Quantas partidas um atacante jogou?
+    <input id="partidas" placeholder="Número de Partidas" type="text"> <br><br>
+    
+    Quantos gols ele marcou?
+    <input id="gols" placeholder="Número de Partidas" type="text"> <br><br>
+
+    <button onclick="calcular()">Estudar Atacante</button><br><br>
+    <div id="msg"></div><br>
+    <img id="img" src="" alt="" style="width:400px"> <br>
+    <div id='msgfinal'></div>
+
+
+</body>
+</html>
+<script>
+
+    function calcular() {
+    var media = Number(gols.value) / Number(partidas.value);
+        if (media < 0.2) {
+            msg.innerHTML = `Melhor mudar de posição`
+            img.src = "Imagens/jogador ruim.jpg"
+        } else if (media >= 0.2 & media <= 0.6) {
+            msg.innerHTML = `Atacante Mediano`
+            img.src = "Imagens/jogador comum.jpg"
+        } else {
+            msg.innerHTML = `Atacante de Futuro`
+            img.src = "Imagens/jogador bom.jpg"
+        }
+
+    msgfinal.innerHTML = `Sua média de gols/partida é de ${media.toFixed(1)}`
+
+    }
+
+</script>

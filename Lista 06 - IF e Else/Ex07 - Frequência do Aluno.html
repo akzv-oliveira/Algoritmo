@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Frequência do Aluno</title>
+</head>
+<body>
+    
+<h3>Frequência do Aluno</h3>
+
+Digite a Frequência do Aluno:
+<input id="aluno" placeholder="Frequência" type="text"> <br><br>
+
+<button onclick="analisar()">Analisar Frequência</button> <br><br>
+<img id="img" src="" alt="" style="width:400px">
+
+</body>
+</html>
+<script>
+
+    function analisar() {
+        var freq = Number(aluno.value);
+        if (freq < 50) {
+            img.src = "Imagens/turista.jpg";
+        } else {
+            img.src = "Imagens/estudioso.jpg";
+        }
+
+    }
+
+</script>

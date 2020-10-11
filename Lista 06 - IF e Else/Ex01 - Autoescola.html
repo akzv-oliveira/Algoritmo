@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Autoescola</title>
+</head>
+<body>
+
+    <h3>Identificação de novos alunos na Autoescola!</h3>
+    Digite seu nome:
+    <input id="nome" type="text" placeholder="Nome"> <br><br>
+
+    Digite sua idade:
+    <input id="idade" type="number" placeholder="Idade"> <br><br>
+
+    <button onclick="avaliar()"> Avaliar Aluno </button> <br><br>
+    <div id="msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        if (idade.value >= 18) {
+            msg.innerHTML = `Seu nome é ${nome.value} e você possui ${idade.value} anos, vamos tirar CNH?`
+        } else {
+            msg.innerHTML = `${idade.value} anos, vai jogar PlayStation!`
+        }
+    }
+</script>
