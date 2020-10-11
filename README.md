@@ -1,2 +1,2 @@
-# Algoritmo
-Repositório de Exercícios de Algoritmo
+# Exercícios de Javascript - Algoritmo
+Repositório de Exercícios de Javascript
