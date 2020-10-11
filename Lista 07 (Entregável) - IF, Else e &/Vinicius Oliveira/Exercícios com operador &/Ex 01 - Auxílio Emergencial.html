@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Auxílio Emergencial</title>
+</head>
+
+<body>
+
+    <h3>Cálculo de Aprovação ao Auxílio Emergencial 📝</h3>
+
+    Digite sua renda:
+    <input id="renda" placeholder="Renda do usuário" type="text"> <br><br>
+
+    Digite a renda total familiar de sua família:
+    <input id="familia" placeholder="Renda familiar" type="text"> <br><br>
+
+    <button onclick=verificar()>Verificar ajuda</button>
+
+</body>
+</html>
+
+<script>
+
+    function verificar() {
+    rendapropria = Number(renda.value);
+    rendafamilia = Number(familia.value)
+    if (rendapropria <= 1050 && rendafamilia <= 2100 ) {
+    alert ("Você terá direito! ✅")
+    } else {
+    alert ("Você NÃO terá direito! ❌")
+        }
+    }
+
+
+</script>

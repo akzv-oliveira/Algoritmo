@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Melhorando o Exercício 02</title>
+</head>
+<body>
+
+    <h3>Cálculo de Desempenho de um Aluno 📚</h3>
+    
+    Digite sua nota:
+    <input id="nota" placeholder="Valor da Nota" type="text"> <br><br>
+
+    <button onclick="classificar()">Classificar Aluno</button><br><br>
+    <div id="msg"></div> <br>
+
+</body>
+</html>
+
+<script>
+
+    function classificar() {
+        
+        desempenho = Number(nota.value);
+        if (desempenho < 0 || desempenho > 10) {
+            msg.innerHTML = `<spam style="color:black"> Nota ${desempenho} é inválida! </spam>`
+        } else if (desempenho < 5) {
+            msg.innerHTML = `<spam style="color:red"> Aluno precisa de muita ajuda </spam>`
+        } else if (desempenho <= 7) {
+            msg.innerHTML = `<spam style="color:orange"> Aluno na média</spam>`
+        } else if (desempenho <= 9.5){
+            msg.innerHTML = `<spam style="color:green"> Aluno acima da média </spam>`
+        } else {
+            msg.innerHTML = `<spam style="color:blue"> Aluno fora da curva </spam>`
+        }
+    }
+
+</script>

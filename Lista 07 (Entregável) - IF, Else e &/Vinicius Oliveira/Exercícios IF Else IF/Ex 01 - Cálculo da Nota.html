@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Cálculo da Nota de um Aluno</title>
+</head>
+<body>
+    <h3>Cálculo de Desempenho de um Aluno 📚</h3>
+    
+    Digite sua nota:
+    <input id="nota" placeholder="Valor da Nota" type="text"> <br><br>
+
+    <button onclick="classificar()">Classificar Aluno</button>
+</body>
+</html>
+
+<script>
+
+    function classificar() {
+        desempenho = Number(nota.value);
+        if (desempenho < 5) {
+            alert ("Aluno precisa de muita ajuda");
+        } else if (desempenho <= 7) {
+            alert ("Aluno na média");
+        } else if (desempenho <= 9.5){
+            alert ("Aluno acima da média");
+        } else {
+            alert ("Aluno fora da curva");
+        }
+    }
+
+</script>

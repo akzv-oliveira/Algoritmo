@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios 04 - Times Grandes de São Paulo</title>
+</head>
+<body>
+
+    <h3>Times Grandes de São Paulo ⚽</h3>
+    
+    <select id="time">
+        <option value = "Times de SP"> Qual time grande de São Paulo você torce? </option>
+        <option value = "Salve o Corinthians 🦅"> Corinthians </option>
+        <option value = "Salve o alviverde imponente 🐖"> Palmeiras </option>
+        <option value = "Agora que dá a bola é o Santos 🦈"> Santos </option>
+        <option value = "Salve o Tricolor paulista 👨🏻‍🦳"> São Paulo </option>
+    </select> <br><br>
+
+    <button onclick ="falar()">Fale sobre esse time</button> <br><br>
+    <div id="msg"></div>
+
+</body>
+</html>
+<script>
+
+    function falar() {
+
+        if (time.value == ("Salve o Corinthians 🦅")) {
+            msg.innerHTML = `<spam style="background-color:black; color:white"> ${time.value} </spam>` 
+        } 
+        else if (time.value == ("Salve o alviverde imponente 🐖")) {
+            msg.innerHTML = `<spam style="background-color:green; color:white"> ${time.value} </spam>`
+        }
+        else if (time.value == ("Agora que dá a bola é o Santos 🦈")) {
+            msg.innerHTML = `<spam style="background-color:white; color:black"> ${time.value} </spam>` 
+        }
+        else if (time.value == ("Salve o Tricolor paulista 👨🏻‍🦳")) {
+            msg.innerHTML = `<spam style="background-color:black; color:red"> ${time.value} </spam>` 
+        } else {
+            msg.innerHTML = ``
+        }
+    }
+</script>

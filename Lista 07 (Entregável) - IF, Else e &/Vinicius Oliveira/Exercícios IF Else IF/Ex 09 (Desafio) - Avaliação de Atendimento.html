@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 09 - Avaliação de Atendimento (Desafio)</title>
+</head>
+
+<body>
+
+    <h3><b>Cálculo de Avaliação de Atendimento 📋</b></h3>
+    Desafio 🎯 <br><br>
+
+    <button onclick="n1()">Nota 1</button>
+    <button onclick="n2()">Nota 2</button>
+    <button onclick="n3()">Nota 3</button>
+    <button onclick="n4()">Nota 4</button>
+    <button onclick="n5()">Nota 5</button>
+
+    <br><br> Sua avaliação: <b id="av"></b> <br>
+    <img id="img" src="" alt="" style="width:350px">
+
+
+
+</body>
+
+</html>
+<script>
+    var notas = 0
+
+    function n1() {
+        notas += 1;
+        var calculo = notas / 5;
+        av.innerHTML = `${calculo.toFixed(1)}`
+
+        if (calculo < 2) {
+            img.src = `Imagens/triste.jpg`
+        } else if (calculo >= 2 && calculo <= 3) {
+            img.src = `Imagens/neutra.jpg`
+        } else if (calculo > 3 && calculo <= 4.5) {
+            img.src = `Imagens/feliz.jpg`
+        } else if (calculo > 4.5) {
+            img.src = `Imagens/mega feliz.jpg`
+        }
+
+    }
+
+    function n2() {
+        notas += 2;
+        var calculo = notas / 5;
+        av.innerHTML = `${calculo.toFixed(1)}`
+
+        if (calculo < 2) {
+            img.src = `Imagens/triste.jpg`
+        } else if (calculo >= 2 && calculo <= 3) {
+            img.src = `Imagens/neutra.jpg`
+        } else if (calculo > 3 && calculo <= 4.5) {
+            img.src = `Imagens/feliz.jpg`
+        } else if (calculo > 4.5) {
+            img.src = `Imagens/mega feliz.jpg`
+        }
+
+    }
+
+    function n3() {
+        notas += 3;
+        var calculo = notas / 5;
+        av.innerHTML = `${calculo.toFixed(1)}`
+
+
+        if (calculo < 2) {
+            img.src = `Imagens/triste.jpg`
+        } else if (calculo >= 2 && calculo <= 3) {
+            img.src = `Imagens/neutra.jpg`
+        } else if (calculo > 3 && calculo <= 4.5) {
+            img.src = `Imagens/feliz.jpg`
+        } else if (calculo > 4.5) {
+            img.src = `Imagens/mega feliz.jpg`
+        }
+
+    }
+
+    function n4() {
+        notas += 4;
+        var calculo = notas / 5;
+        av.innerHTML = `${calculo.toFixed(1)}`
+
+        if (calculo < 2) {
+            img.src = `Imagens/triste.jpg`
+        } else if (calculo >= 2 && calculo <= 3) {
+            img.src = `Imagens/neutra.jpg`
+        } else if (calculo > 3 && calculo <= 4.5) {
+            img.src = `Imagens/feliz.jpg`
+        } else if (calculo > 4.5) {
+            img.src = `Imagens/mega feliz.jpg`
+        }
+
+    }
+
+    function n5() {
+        notas += 5;
+        var calculo = notas / 5;
+        av.innerHTML = `${calculo.toFixed(1)}`
+
+        if (calculo < 2) {
+            img.src = `Imagens/triste.jpg`
+        } else if (calculo >= 2 && calculo <= 3) {
+            img.src = `Imagens/neutra.jpg`
+        } else if (calculo > 3 && calculo <= 4.5) {
+            img.src = `Imagens/feliz.jpg`
+        } else if (calculo > 4.5) {
+            img.src = `Imagens/mega feliz.jpg`
+        }
+    }
+</script>

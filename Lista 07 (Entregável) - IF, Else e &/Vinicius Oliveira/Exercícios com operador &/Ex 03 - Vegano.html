@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Vegano</title>
+</head>
+<body>
+
+    <h3>Verificação de Usuário Vegano 🥦</h3>
+    
+    <select id="breakfast">
+        <option value = "Café da Manhã"> O que você come no café da manhã? ☕ </option>
+        <option value = "Ovos"> Ovos 🍳 </option>
+        <option value = "Leite de Arroz"> Leite de Arroz 🥛 </option>
+        <option value = "Bacon"> Bacon 🥓 </option>
+    </select> <br><br>
+
+    <select id="lunch">
+        <option value = "Almoço"> O que você come no almoço? 🥘 </option>
+        <option value = "Bife"> Bife 🥩 </option>
+        <option value = "Hamburguer de Soja"> Hamburguer de Soja 🍔 </option>
+        <option value = "Frango Grelhado"> Frango Grelhado 🍗 </option>
+    </select> <br><br>
+
+    <select id="dinner">
+        <option value = "Janta"> O que você come na janta? 🥂 </option>
+        <option value = "Picanha de Soja"> Picanha de Soja 🍠 </option>
+        <option value = "Cupim"> Cupim 🍖 </option>
+        <option value = "Coração"> Coração 🧆 </option>
+    </select> <br><br>
+
+    <button onclick="vegano()">Sou vegano</button>
+        
+</body>
+</html>
+<script>
+
+    function vegano() {
+
+        if (breakfast.value == ("Leite de Arroz") && lunch.value == ("Hamburguer de Soja") 
+        && dinner.value == ("Picanha de Soja")) {
+            alert ("Sim, você é vegano! 🥦")
+        } else {
+            alert ("Não, você não é vegano 🍴🍖")
+        }
+
+    }
+
+</script>

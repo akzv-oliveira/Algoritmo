@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06 - Melhorando o Exercício 05</title>
+</head>
+<body>
+    <h3>Cálculo de Nutrição 🥪</h3>
+
+    Quantos pães francês você tem comido por dia? 🍞 <br>
+    <input id="paes" placeholder="Pães por dia" type="text"> <br><br>
+
+    Quantos pacotes de bolachas recheadas tem comido por dia? 🍪<br>
+    <input id="bolacha" placeholder="Pacote de bolachas por dia" type="text"> <br><br>
+
+    Quantos copos de achocolatado você tem tomado por dia? ☕<br>
+    <input id="copos" placeholder="Achocolatados por dia" type="text"> <br><br>
+
+    <button onclick="verificar()">Verificar Calorias</button><br><br>
+    <div id="msg"></div>
+    <div id="msg2"></div> <br>
+    <img id="img" src="" alt=""  style="width:400px">
+    
+</body>
+</html>
+<script>
+
+    function verificar() {
+
+        var caloriapao = Number(paes.value) * 50;
+        var caloriabolacha = Number(bolacha.value) * 80;
+        var caloriachoc = Number(copos.value) * 70;
+        var caloriatotal = caloriapao + caloriabolacha + caloriachoc;
+        
+        msg.innerHTML = `Seu Total de Calorias é ${caloriatotal}`
+
+        if (caloriatotal < 200) {
+            msg2.innerHTML = `Parabéns, vai sair em forma da quarentena!`
+            img.src = `Imagens/pessoa em forma.jpg`
+        } else if (caloriatotal >= 200 && caloriatotal <= 400) {
+            msg2.innerHTML = `Cuidado, vai ficar mais "fofinho(a)" após quarentena!`
+            img.src = `Imagens/pessoa acima do peso.jpg`
+        } else {
+            msg2.innerHTML =  `Bom, acho que muitos não vão te reconhecer após a quarentena`
+            img.src = `Imagens/pessoa obesa.jpg`
+        }
+    }
+
+
+</script>

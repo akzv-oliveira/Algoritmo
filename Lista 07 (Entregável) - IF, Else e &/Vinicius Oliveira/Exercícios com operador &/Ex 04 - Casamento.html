@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04 - Casamento</title>
+</head>
+<body>
+    <h3>Permissão de Casamento 🤵🏽👰🏽</h3>
+
+    Por quantos anos você trabalhou para o Pai da pretendente? <br>
+    <input id="tempo" placeholder="Tempo em anos" type="text"> <br><br>
+
+    Quantos quilos de trigo suas plantações renderam? <br>
+    <input id="quilos" placeholder="Quantidade em quilos" type="text"> <br><br>
+
+    Por quantos dias você faltou ao trabalho por estar doente? <br>
+    <input id="dias" placeholder="Dias faltados" type="text"> <br><br>
+    
+    <button onclick="match()">Deu match?</button> <br><br>
+    <div id="msg"></div> <br>
+    <img id="img" src="" style="width:400px">
+
+</body>
+</html>
+<script>
+
+    function match() {
+
+        var anos = Number(tempo.value);
+        var trigo = Number(quilos.value);
+        var faltas = Number(dias.value);
+
+        if (anos >= 5 && trigo >= 300 && faltas <= 5) {
+            msg.innerHTML = `Minha filha será sua! 👰🏽💖`
+            img.src = `Imagens/noiva.jpg`
+        } else {
+            msg.innerHTML = `Deu ruim! Trabalhe mais 2 anos 🥵`
+            img.src = `Imagens/pai bravo.jpg`
+        }
+    }
+
+</script>

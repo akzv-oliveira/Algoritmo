@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Estações do Ano</title>
+</head>
+<body>
+
+    <h3>Cálculo de Estações e Meses do Ano 🍂</h3>
+
+    <select id="meses" onchange="estacao()">
+        <option value = "Meses do Ano"> Meses do Ano </option>
+        <option value = "Inverno ⛄"> Janeiro </option>
+        <option value = "Inverno ⛄"> Fevereiro </option>
+        <option value = "Primavera 🌻"> Março </option>
+        <option value = "Primavera 🌻"> Abril </option>
+        <option value = "Primavera 🌻"> Maio </option>
+        <option value = "Verão 🌞"> Junho </option>
+        <option value = "Verão 🌞"> Julho </option>
+        <option value = "Verão 🌞"> Agosto </option>
+        <option value = "Outono 🍁"> Setembro </option>
+        <option value = "Outono 🍁"> Outubro </option>
+        <option value = "Outono 🍁"> Novembro </option>
+        <option value = "Inverno ⛄"> Dezembro </option>
+    </select> <br><br>
+
+    <div id="msg"></div>
+    <img id="img" src="" alt="" style="width:400px">
+</body>
+</html>
+<script>
+
+    function estacao() {
+        
+        if (meses.value == "Inverno ⛄") {
+        msg.innerHTML = `${meses.value}`
+        img.src = `Imagens/inverno.jpg`      
+        } 
+        else if (meses.value == "Primavera 🌻"){
+        msg.innerHTML = `${meses.value}`
+        img.src = `Imagens/primavera.jpg` 
+        }
+        else if (meses.value == "Outono 🍁"){
+        msg.innerHTML = `${meses.value}`
+        img.src = `Imagens/outono.jpg`  
+        }
+        else if (meses.value == "Verão 🌞") {
+        msg.innerHTML = `${meses.value}`
+        img.src = `Imagens/verao.jpg`  
+        } else {
+        msg.innerHTML = ``
+        img.src = `` 
+        }
+    }
+
+</script>

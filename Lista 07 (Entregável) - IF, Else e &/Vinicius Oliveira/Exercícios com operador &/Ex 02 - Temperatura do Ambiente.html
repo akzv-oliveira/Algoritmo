@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02 - Temperatura do Ambiente </title>
+</head>
+<body>
+    <h3>Cálculo de Temperatura do Ambiente 📑 </h3>
+
+    Qual a Temperatura Ambiente?
+    <input id="clima" placeholder="Temperatura em ºC" type="text"><br><br>
+
+    <button onclick="medir()">Medir conforto</button>
+    
+</body>
+</html>
+<script>
+
+    function medir() {
+        var temperatura = Number(clima.value)
+        if (temperatura >= 22 && temperatura <= 23) {
+            alert ("Temperatura Confortável 🙂")
+        } else {
+            alert ("Temperatura não está confortável 🥵🥶")
+        }
+    }
+
+</script>
+
+

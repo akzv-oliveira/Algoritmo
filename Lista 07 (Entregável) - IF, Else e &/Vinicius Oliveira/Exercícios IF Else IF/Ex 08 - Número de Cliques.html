@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08 - Botão de Cliques</title>
+</head>
+<body>
+
+    <h3>Cálculo de Cliques 👆🏽</h3>
+
+    Você já clicou <b id="vezes">0</b> vezes <br>
+
+    <div id="msg"></div> <br>
+    <button onclick="clicar()">Clica neu</button>
+</body>
+</html>
+
+<script>
+
+    var cliques = 0
+
+    function clicar() {
+    cliques ++;
+    vezes.innerHTML = cliques;
+
+        if (cliques < 5) {
+            msg.innerHTML = `Dedo fraquinho, hein 😴`
+        } else if (cliques >= 5 && cliques <= 10) {
+            msg.innerHTML = `Dedo bom, mano! 😄`
+        } else if (cliques >= 11 && cliques <= 15) {
+            msg.innerHTML = `Gosta de clicar, hein! 😲` 
+        } else {
+            msg.innerHTML = `Eita dedo nervoso! 🥵`
+        }
+    }
+
+</script>
