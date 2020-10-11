@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Cálculo Latinhas de Refrigerante</title>
+</head>
+<body>
+
+    <h3>Cálculo de consumo de latinhas de refri por ano 🥤</h3>
+
+    Quantas latinhas de Refrigerante você toma por dia?
+    <input id="latinhas" placeholder="Latinhas de Refrigerante" type="text"> <br><br>
+    
+    <button onclick="calcular()">Quantos Refris?</button> <br><br>
+    <div id="msg"></div> 
+    <div id="msg2"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        var refri = Number(latinhas.value);
+        refri = refri * 365;
+        msg2.innerHTML = `A quantidade de latinhas que você consome por ano é de ${refri}` 
+        if (refri >= 500) {
+            msg.innerHTML = `Cuidado com a diabetes!`
+        } else {
+            msg.innerHTML = ``
+        }
+    }
+
+
+</script>

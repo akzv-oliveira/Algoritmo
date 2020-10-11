@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02 - Cálculo da Média de um Fora de Série</title>
+</head>
+<body>
+
+    <h3>Cálculo de um Aluno Fora de Série 👨🏾‍🎓</h3>
+    Qual foi sua 1° nota?
+    <input id="n1" placeholder="Nota um" type="text"> <br><br>
+
+    Qual foi sua 2° nota?
+    <input id="n2" placeholder="Nota dois" type="text"> <br><br>
+
+    Qual foi sua 3° nota?
+    <input id="n3" placeholder="Nota três" type="text"> <br><br>
+
+    <button onclick="analisar()">Analisar Desempenho</button> <br><br>
+    <div id="msg"></div>
+    <div id="msg2"></div>
+    
+</body>
+</html>
+<script>
+
+    function analisar() {
+        media = (Number(n1.value) + Number(n2.value) + Number(n3.value)) / 3
+        msg.innerHTML = `Sua média foi de ${media.toFixed(2)}`
+        if (media > 9.4) {
+            msg2.innerHTML = `Parabéns, você é Fora de Série!`
+        } else { 
+            msg2.innerHTML = ``
+        }
+    }
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Cálculo de Valor da Pizza</title>
+</head>
+<body>
+    <h3>Cálculo de Preço da Pizza entre amigos 🍕</h3>
+
+    Qual o valor da Pizza?
+    <input id="valor" placeholder="Preço da Pizza em R$" type="text"> <br><br>
+
+    Quantos amigos estão reunidos?
+    <input id="amigos" placeholder="Número de Amigos" type="text"> <br><br>
+
+    <button onclick="analisar()">Rola a Pizza?</button> <br><br>
+    <div id="msg"></div>
+    <div id="msg2"></div>
+
+</body>
+</html>
+<script>
+    
+    function analisar() {
+        var divisao = Number(valor.value) / Number(amigos.value);
+        msg.innerHTML = `Cada amigo vai pagar R$ ${divisao.toFixed(2)} pela pizza`
+        if (divisao > 20) {
+            msg2.innerHTML = `Deu ruim! Pizza muito cara!`
+        } else {
+            msg2.innerHTML = ``
+        }
+    } 
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06</title>
+</head>
+<body>
+
+    <h3>Cálculo de Conta de Luz</h3>
+    Digite a quantidade de kWh consumida no mês
+    <input id="qtdkwh" type="text" placeholder="kWh consumida"> 
+    <br><br>
+    <button onclick="calcular()">Calcular conta de Luz</button>
+    <br><br>
+    <div id="msg"></div>
+
+</body>
+</html>
+<script>
+    function calcular() {
+        var kwh = Number(qtdkwh.value);
+        var luz = kwh * 0.85;
+        //var desc;
+        //msg.innerHTML = `O valor da conta a se pagar é de R$${luz}`;
+
+        if (kwh < 100) {
+            //desc = (luz * 10) / 100;
+            //luz = luz - desc;
+            luz = luz * 0.9;
+            msg.innerHTML = `O valor da conta a se pagar <b>aplicando os 10%</b> é de R$ ${luz.toFixed(2)}`;
+       } else {
+            msg.innerHTML = `O valor da conta a se pagar é de R$ ${luz.toFixed(2)}`;
+        }
+    }
+</script>
