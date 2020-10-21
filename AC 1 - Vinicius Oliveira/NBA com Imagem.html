@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário NBA</title>
+</head>
+<body>
+
+    <img src="Imagens\NBA.png" alt="NBA" style="width:450px;">
+    <br>
+
+<div id="contorno" style="background-color:rgb(162, 187, 235); width:450px">
+<br>
+    <div id="container" style="width:425px; text-align:justify; margin-left:10px;">
+            A <b style="color:crimson">NBA</b> (<spam style="color:darkred">National Basketball Association</spam>) é uma liga
+            profissional de <b style="color:orangered">basquetebol</b> dos <i><b style="color:blue">Estados Unidos</b></i> e <i><b style="color:white">Canadá</b></i>
+            considerada uma das mais importantes e mais competitivas
+            ligas de <b style="color:orangered">basquetebol</b> do <i><b style="color:sienna">MUNDO!</b></i>. Ela é composta por aproximadamente <b style="color:green">30 times</b>
+            que competem entre si por meio das <i style="color:red"><b>conferências</b></i> <b style="color:purple">Leste</b> e <b style="color:darkgreen">Oeste</b>.
+    </div>
+<br>
+    <div id="box">
+        <b style="color:indigo; margin-left:10px">Me fale um pouco mais sobre seu time...</b> <br> <br>
+
+        <b style="color:midnightblue; margin-left:10px">Qual o seu <b style="color:green">time</b> do <b style="color:red">coração</b> da <b style="color:crimson">NBA</b>?</b> <br>
+        <input id="time" type="text" placeholder="Nome do seu time" style="width:250px; margin-left:10px">
+
+        <br><br>
+
+        <b style="color:orangered; margin-left:10px">Qual o seu <b style="color:midnightblue">jogador</b> <b style="color:darkred">favorito</b> do <b style="color:green">time</b>? </b> <br>
+        <input id="jogador" type="text" placeholder="Nome do seu jogador" style="width:250px; margin-left:10px">
+
+        <br><br>
+
+        <b style="color:indigo; margin-left:10px">A qual <b style="color:red">conferência</b> seu <b style="color:green">time</b> pertence?<br>
+        <input id="conferencia" type="text" placeholder="Nome da conferência" style="width:250px; margin-left:10px">
+
+        <br><br>
+
+        <b style="color:darkgreen; margin-left:10px">Quantos <b style="color:orangered">títulos</b> possui o seu <b style="color:midnightblue">time</b>?</b> <br>
+        <input id="titulos" type="text" placeholder="Total de títulos" style="width:250px; margin-left:10px">
+
+        <br><br>
+
+        <button onclick="show()" style="background:rgb(10, 10, 49); color:white; margin-left:10px; width:100px">
+            <b>Exibir Resposta</b>
+        </button>
+
+        <br><br>
+
+        <div id="resposta" style="margin-left:10px; color:midnightblue"></div>
+    </div>
+    <div id="footer" style="background-color:rgb(16, 16, 66); width:450px">.</div>
+
+</div>
+</body>
+</html>
+
+<script>
+    function show() {
+        resposta.innerHTML = `<b style="color:darkred">Obrigado por Responder!!!</b>
+        <br>Seu <b style="color:green">Time</b> do <b style="color:red">Coração</b> é <b style="color:black">${time.value}</b> 
+        <br>Seu <b style="color:purple">Jogador</b> <b style="color:darkred">Favorito</b> é <b style="color:black">${jogador.value}</b> 
+        <br>O seu <b style="color:green">time</b> pertence a <b style="color:red">conferência</b> <b style="color:black">${conferencia.value}</b>
+        <br>E o seu <b style="color:green">time</b> possui um <b style="color:crimson">total</b> de <b style="color:black">${titulos.value}</b> <b style="color:red">títulos!</b>`}
+</script>
