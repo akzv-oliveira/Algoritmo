@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Contínuada 2 - Vinícius Oliveira</title>
+</head>
+<body>
+
+    <div id="validação" style="display:block">
+    <h3>AC2 - Orçamento de Vendas Cadeiramor 📋</h3>
+    <h4> Vinícius Santos de Oliveira - 01202098</h4>
+
+    <label>Insira a loja 🏬:</label>
+    <input id="loja" placeholder ="Sua Loja" type="text" size="22px"> <br><br>
+    <label>Insira sua conta 📑:</label>
+    <input id="conta" placeholder="Sua conta" type="text" size="18px"> <br><br>
+    <label>Valor do seu dígito 🎫:</label>
+    <input id="digito" placeholder="Dígito de 1 a 3" type="text" size="14px"> <br><br>
+
+    <button onclick="conferir()" style="margin-left:90px;">Conferir</button>
+    </div>
+
+    <div id="login" style="display:none">
+    <h3>Olá cliente, entre com sua senha 💻</h3> 
+    <label>Senha:</label>
+    <input id="senha" placeholder="Senha" type="text"> <br><br>
+    <button onclick="limpar()">Limpar</button>
+    <button onclick="entrar()">Entrar</button> <br><br>
+    <div id="msgsenha"></div>
+    </div>
+
+    <div id="conteúdo" style="display: none">
+    <h3>Selecione a Cadeira desejada 🪑</h3>
+    <select id="cadeira" onchange="cadeiras()">
+        <option value = "Tipos de Cadeira">Tipos de Cadeira</option>
+        <option value = "Cadeira de Praia">Cadeira de Praia</option>
+        <option value = "Cadeira de Jardim">Cadeira de Jardim</option>
+    </select> <br><br>
+
+    <img src="" alt="" id="imgcadeira" style="height:150px"> <br><br>
+
+    <div id="combomaterial"  style="display:none">
+    <h4>Opções de Material 📝</h4>
+    <select id="material" onchange="materiais()">
+        <option value = "Opções de Material">Opções de Material</option>
+        <option value = "Alumínio">Alumínio</option>
+        <option value = "Plástico">Plástico</option>
+        <option value = "Ferro">Ferro</option>
+    </select> <br><br>
+
+    <div id="qtdcadeira" style="display: none">
+    <label>Quantidade de Cadeiras desejadas 📑</label> <br><br>
+    <input id="inputmaterial" type="text" placeholder="Qtd. de Cadeiras"> <br><br>
+    <button onclick="calcularcadeira()">Calcular</button> <br><br>
+    <div id="orçamento"></div><br>
+    <div id="msgdesconto"></div><br>
+    <button id="sairlogin" style="display: none" onclick="sair()">Voltar para Tela Principal</button>
+    </div>
+    </div>  
+    </div>
+
+
+
+
+</body>
+</html>
+<script>
+
+    function conferir() {
+
+        if (loja.value >= 1 && loja.value <= 10) {
+
+            if (conta.value <= 0) {
+                alert("Conta Inválida");
+             } else {
+
+                    if (digito.value < 1 || digito.value > 3) {
+                         alert("Digito Inválido");
+                    } else {
+
+                        resto = (conta.value % loja.value);
+
+                        if ((resto < 3 && digito.value == 1) ||  (resto >= 3 && resto <= 6 && digito.value == 2) || 
+                        (resto > 6 && digito.value == 3)) {
+
+                            validação.style = "display: none";
+                            login.style = "display: block";
+                            
+
+                        //   alert("Validação");
+                        } else {
+                        alert("Dígito Inválido");
+                        }
+                    }
+            
+                 }             
+        } else {
+                alert("Loja Inválida");
+            } 
+    }
+
+    function limpar() {
+        senha.value = ("");
+    }
+
+
+    var contador = 0;
+
+    function entrar() {
+        
+        
+
+        if ((digito.value == 1 && senha.value == ("recife")) 
+        || (digito.value == 2 && senha.value == ("manaus")) 
+        || (digito.value == 3 && senha.value == ("fortaleza"))) {
+
+            conteúdo.style = "display: block";
+            login.style = "display: none";
+
+        } else {
+            
+            contador ++;
+            msgsenha.innerHTML += `Senha Inválida <br>` 
+
+            if (contador > 3) {
+                alert("Você excedeu o número de tentativas, sua conta está bloqueada ❌ PROCURE O SUPORTE!")
+                contador = 0
+                validação.style = "display: block";
+                login.style = "display: none";
+                loja.value = ("");
+                conta.value = ("");
+                digito.value = ("");
+                senha.value = ("");
+                msgsenha.innerHTML = ``;
+            }
+        }
+    }
+
+    function cadeiras() {
+        if (cadeira.value == "Cadeira de Praia") {
+            imgcadeira.src = `Imagens/cadeira de praia.jpg`
+            imgcadeira.style = "display: block; height:150px"
+            combomaterial.style = "display: block"
+            qtdcadeira.style = "display: none"
+            material.value = ("Opções de Material");
+
+        } else if (cadeira.value == "Cadeira de Jardim") {
+            imgcadeira.src = `Imagens/cadeira de jardim.jpg`
+            imgcadeira.style = "display: block; height:150px"
+            combomaterial.style = "display: block"
+            qtdcadeira.style = "display: none"
+            material.value = ("Opções de Material");
+
+        } else if (cadeira.value == "Tipos de Cadeira") {
+            imgcadeira.style = "display: none";
+            combomaterial.style = "display: none";
+            
+        }
+    }
+
+    function materiais() {
+        if (material.value == "Alumínio") {
+            qtdcadeira.style = "display:block"
+            inputmaterial.value = ("");
+            orçamento.innerHTML = ("");
+            msgdesconto.innerHTML = ("");
+            sairlogin.style = "display:none"
+        } else if (material.value == "Plástico") {
+            qtdcadeira.style = "display:block"
+            inputmaterial.value = ("");
+            orçamento.innerHTML = ("");
+            msgdesconto.innerHTML = ("");
+            sairlogin.style = "display:none"
+        } else if (material.value == "Ferro") {
+            qtdcadeira.style = "display.block"
+            inputmaterial.value = ("");
+            orçamento.innerHTML = ("");
+            msgdesconto.innerHTML = ("");
+            sairlogin.style = "display:none"
+        } else if (material.value == "Opções de Material")  {
+            qtdcadeira.style = "display:none"
+        }
+    }
+
+    function calcularcadeira() {
+        if (inputmaterial.value <= 0 || inputmaterial.value != Number(inputmaterial.value)) {
+            alert("Insira um valor númerico maior que 0");
+        } else {
+            if (cadeira.value == "Cadeira de Praia" && material.value == "Alumínio") {
+                var total = Number(inputmaterial.value) * 75;
+                if (inputmaterial.value > 50) {
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 3.5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>3.5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 3.5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>3.5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+
+            } else if (cadeira.value == "Cadeira de Praia" && material.value == "Plástico") {
+                var total = Number(inputmaterial.value) * 50;
+
+                if (inputmaterial.value > 50) {
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+
+            } else if (cadeira.value == "Cadeira de Praia" && material.value == "Ferro") {
+                var total = Number(inputmaterial.value) * 80;
+
+                if (inputmaterial.value > 50) {
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+
+            } else if (cadeira.value == "Cadeira de Jardim" && material.value == "Alumínio") {
+                var total = Number(inputmaterial.value) * 70;
+
+                if (inputmaterial.value > 50) {
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 3.5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>3.5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 3.5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>3.5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+
+            } else if (cadeira.value == "Cadeira de Jardim" && material.value == "Plástico") {
+                var total = Number(inputmaterial.value) * 35;
+                if (inputmaterial.value > 50) {
+
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+
+            } else if (cadeira.value == "Cadeira de Jardim" && material.value == "Ferro") {
+                var total = Number(inputmaterial.value) * 55;
+
+                if (inputmaterial.value > 50) {
+                total = total * 0.97;
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> <br> aplicado o desconto de 3% é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+                
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                
+                } else {
+
+                orçamento.innerHTML = `O orçamento para a compra de <b>${inputmaterial.value}</b> <b>
+                ${cadeira.value}</b> de <b>${material.value}</b> é <b style="color:green">R$</b> 
+                <b>${total.toFixed(2)}</b>`
+
+                var desconto = (total * 5) / 100;
+                var totaldesc = total - desconto;
+                msgdesconto.innerHTML = `Para pagamento a vista o desconto é de <b>5%</b> <br> e seu pedido
+                ficará por <b style="color:green">R$</b> <b>${totaldesc.toFixed(2)}<b>`
+
+                sairlogin.style = "display:block"
+                    
+                }
+            } 
+        } 
+    }
+
+    function sair() {
+        contador = 0
+                validação.style = "display: block";
+                login.style = "display: none";
+                loja.value = ("");
+                conta.value = ("");
+                digito.value = ("");
+                senha.value = ("");
+                msgsenha.innerHTML = ``;
+                inputmaterial.value = ("");
+                orçamento.innerHTML = ("");
+                msgdesconto.innerHTML = ("");
+                conteúdo.style = "display: none";
+                qtdcadeira.style = "display: none";
+                material.value = ("Opções de Material");
+                cadeira.value = ("Tipos de Cadeira");
+                imgcadeira.style = "display: none";
+                combomaterial.style = "display: none";
+    }
+
+
+
+</script>
+
+
+<!-- VALEU PROFESSOR FRIZZA PELA AVALIAÇÃO, AMEI DEMAIS FAZER ESSE DESAFIO ❤ -->
